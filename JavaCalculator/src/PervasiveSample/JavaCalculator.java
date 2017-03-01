@@ -6,43 +6,36 @@ public class JavaCalculator {
 
 	public static void main(String[] args) {
 
-		double n1, n2;
-		String operation;
-		Scanner scanObject = new Scanner(System.in);
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Enter an expression of the form 3 * 5");
+			double n1 = scanner.nextDouble();
+			String operation = scanner.next();
+			double n2 = scanner.nextDouble();
 
-		System.out.println("Enter first number");
-		n1 = scanObject.nextDouble();
-		System.out.println("Enter second number");
-		n2 = scanObject.nextDouble();
+			switch (operation) {
+			case "+":
+				System.out.println("Your answer: " + (n1 + n2));
+				break;
 
-		Scanner op = new Scanner(System.in);
+			case "-":
+				System.out.println("Your answer: " + (n1 - n2));
+				break;
 
-		System.out.println("Enter your operation");
-		operation = op.next();
+			case "*":
+				System.out.println("Your answer: " + (n1 * n2));
+				break;
 
-		switch (operation) {
-		case "+":
-			System.out.println("Your answer: " + (n1 + n2));
-			break;
+			case "/":
+				System.out.println("Your answer: " + (n1 / n2));
+				break;
 
-		case "-":
-			System.out.println("Your answer: " + (n1 - n2));
-			break;
+			case "^":
+				System.out.println("Your answer: " + Math.pow(n1, n2));
+				break;
 
-		case "*":
-			System.out.println("Your answer: " + (n1 * n2));
-			break;
-
-		case "/":
-			System.out.println("Your answer: " + (n1 / n2));
-			break;
-			
-		case "^":
-			System.out.println("Your answer: " + Math.pow(n1 , n2));
-			break;	
-
-		default:
-			System.out.println("Unknown operation");
+			default:
+				System.out.println("Unknown operation");
+			}
 		}
 
 	}
